@@ -1,0 +1,27 @@
+Manpages for C++.
+
+Created using the libstdc++ man pages and by generating the boost man pages.
+Note that not all boost libraries are set up to generate documentation, so not
+all are represented.
+
+Generating boost manpages is accomplished by: 
+* downloading boost source
+* compiling the b2 utility that comes with boost
+* navigating to the libs/<boost_lib>/doc folder
+* invoking b2 to build the man page target (ie. 'b2 man')
+
+libstdc++ man pages are available on most linux distros by installing the
+libstdc++-<version>-doc package.
+
+Included is a python script that translates the filenames of the manpages into
+something easier to search though. This way, a user can invoke something easier
+like 'man unique_ptr' instead of 'man std::unique_ptr'. This also makes it
+easier to integrate with help systems built into editors like vim.
+
+Users can install these man pages by setting the man path to include this
+directory in their bashrc file. (ie. export MANPATH=`manpath`:`pwd`)
+
+In order to disambiguate manpages that might conflict (ie. vector) there are a
+few options. Using the '-a' option shows all results of a manpage search in
+succession. Using the '-e' option enables users to specify an extension
+substring. (ie. 'man -e boost vector' or 'man -e std vector')
